@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>2000s BBS Todo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      font-family: 'Gulim', '굴림', 'Dotum', '돋움', sans-serif;
+      font-size: 12px;
+      color: #333333;
+    }
+    input, textarea, button {
+      font-family: inherit;
+      font-size: inherit;
+    }
+    ::-webkit-scrollbar { height: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #cccccc; border: 1px solid #999999; }
+  </style>
+</head>
+<body class="bg-white p-2 sm:p-4">
+
+  <div class="max-w-4xl mx-auto mt-2 sm:mt-4">
+    
+    <div class="flex justify-between items-end mb-2">
+      <h2 class="text-[14px] sm:text-[16px] font-bold text-[#050099]">FAST ToDo</h2>
+    </div>
+
+    <div class="border border-[#cccccc] bg-[#f9f9f9] p-2 sm:p-3 mb-4 sm:mb-6">
+      <table class="w-full text-left border-collapse">
+        <tbody>
+          <tr>
+            <td class="w-14 sm:w-20 py-1 font-bold text-[#555555] bg-[#efefef] border border-[#dddddd] text-center text-[11px] sm:text-[12px]">제 목</td>
+            <td class="py-1 px-1 sm:px-2 border border-[#dddddd] bg-white">
+              <input type="text" id="title" class="w-full border border-[#aaaaaa] px-1 py-[2px] focus:outline-none" style="border-style: inset;">
+            </td>
+          </tr>
+          <tr>
+            <td class="w-14 sm:w-20 py-1 font-bold text-[#555555] bg-[#efefef] border border-[#dddddd] text-center align-top pt-2 text-[11px] sm:text-[12px]">내 용</td>
+            <td class="py-1 px-1 sm:px-2 border border-[#dddddd] bg-white">
+              <textarea id="content" class="w-full border border-[#aaaaaa] px-1 py-1 h-16 sm:h-20 resize-none focus:outline-none" style="border-style: inset;"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td class="w-14 sm:w-20 py-1 font-bold text-[#555555] bg-[#efefef] border border-[#dddddd] text-center text-[11px] sm:text-[12px]">마감일</td>
+            <td class="py-1 px-1 sm:px-2 border border-[#dddddd] bg-white">
+              <input type="date" id="dueDate" class="border border-[#aaaaaa] px-1 py-[2px] focus:outline-none w-full sm:w-auto" style="border-style: inset;">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="text-right mt-2">
+        <button onclick="saveTodo()" class="border border-[#999999] bg-[#eef1f8] hover:bg-[#dfdfdf] px-3 sm:px-4 py-[3px] text-[#333333] cursor-pointer w-full sm:w-auto">
+          등록확인
+        </button>
+      </div>
+    </div>
+
+    <div class="overflow-x-auto border-t-2 border-[#555555] border-b border-[#cccccc]">
+      <table class="w-full text-center min-w-[550px]">
+        <thead class="bg-[#f4f4f4] text-[#555555]">
+          <tr>
+            <th class="py-[6px] w-12 sm:w-16 font-normal border-b border-[#cccccc]">상태</th>
+            <th class="py-[6px] font-normal border-b border-[#cccccc]">제목 / 내용</th>
+            <th class="py-[6px] w-20 sm:w-24 font-normal border-b border-[#cccccc]">마감일</th>
+            <th class="py-[6px] w-20 sm:w-24 font-normal border-b border-[#cccccc]">작성일</th>
+            <th class="py-[6px] w-12 sm:w-16 font-normal border-b border-[#cccccc]">관리</th>
+          </tr>
+        </thead>
+        <tbody id="todoList" class="bg-white">
+          </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
